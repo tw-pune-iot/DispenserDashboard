@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>statistics</title>
+</head>
+<body ng-app="myapp.statistics" ng-controller="statisticsCtrl">
+    <div id="greeting">
+        <h3>Hii Supriya</h3>
+        <h3>H2OH... Really Welcomes You !!</h3>
+        <hr/>
+    </div>
+    <div id="waterConsumption">
+        <h1>You Have Consumed {{getWaterConsumption()}} Litres Water Today! [Since {{initialWaterConsumptionTime()}} ] </h1>
+    </div>
+    <div id="dataRepresentation">
+        <img ng-repeat="n in getWaterBottleMap()  track by $index" ng-src="{{n}}" style="display: inline-block"/>
+    </div>
+    <div id="expectation">
+        <h2>You have {{amountOfWaterLeftForConsumption()}} Litres Water more to finish!!</h2>
+        <button>Check Your Improvement</button>
+    </div>
+</body>
+</html>
