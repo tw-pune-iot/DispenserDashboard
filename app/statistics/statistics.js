@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.statistics', ['ngRoute'])
+angular.module('dispenser.statistics', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/statistics', {
             templateUrl: 'statistics/statistics.html',
-            controller: 'statisticsCtrl'
+            controller: 'StatisticsController'
         });
     }])
 
-    .controller('statisticsCtrl', function($scope) {
+    .controller('StatisticsController', function($scope) {
         $scope.getWaterConsumption = function () {
            return 4.75;
         };
