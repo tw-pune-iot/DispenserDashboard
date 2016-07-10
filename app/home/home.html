@@ -7,7 +7,7 @@
 
     <title>Title</title>
 </head>
-<body>
+<body ng-app="dispenser.home" ng-controller="homeController">
 
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
     <div class="container-fluid">
@@ -26,50 +26,50 @@
                 <h1>H2.. Oh</h1>
                 <p>Here is a cool application to help you track your water intake. Leaderboards, history, charts and
                     graphs and so much to help you keep yourself hydrated </p>
-                <p>
-                    <a class="btn btn-lg btn-primary" role="button" data-toggle="modal" data-target="#myModal">Wohoo !!
-                        Take me in..</a>
-                </p>
+                <input type="text" placeholder="Employee ID" ng-model="empId">
+                <input type="button" ng-click="showUserData()" value="Enter">
+                <!--<button ng-click="showUserData()">Enter</button>-->
+                <!--<p>-->
+                    <!--<a class="btn btn-lg btn-primary" role="button" data-toggle="modal" data-target="#myModal">Wohoo !!-->
+                        <!--Take me in..</a>-->
+                <!--</p>-->
 
 
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                        aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Login</h4>
-                            </div>
-                            <div class="modal-body">
-                                <em>Please enter our employee ID</em>
+                <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+                    <!--<div class="modal-dialog" role="document">-->
+                        <!--<div class="modal-content">-->
+                            <!--<div class="modal-header">-->
+                                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                                        <!--aria-hidden="true">&times;</span></button>-->
+                                <!--<h4 class="modal-title" id="myModalLabel">Login</h4>-->
+                            <!--</div>-->
+                            <!--<div class="modal-body">-->
+                                <!--<em>Please enter our employee ID</em>-->
 
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail3"
-                                               placeholder="99999">
-                                    </div>
+                                <!--<form class="form-inline">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label class="sr-only" for="exampleInputEmail3">Email address</label>-->
+                                        <!--<input type="text" class="form-control" id="exampleInputEmail3" ng-model="employeeId"-->
+                                               <!--placeholder="99999">-->
+                                    <!--</div>-->
 
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                <!--</form>-->
+                            <!--</div>-->
+                            <!--<div class="modal-footer">-->
+                                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>-->
+                                <!--<button type="button" class="btn btn-primary" onsubmit="something()">Submit</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
 
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" ng-if="info">
             <div class="jumbotron">
-                <table>
-                    <tr ng-repeat="user in topTenList">
-                        <td>{{user.id}}</td>
-                        <td>{{user.consumption}}</td>
-                    </tr>
-                </table>
+                <h2>Hii {{getEmpName()}}</h2>
+                <h3>You Have Consumed {{consumptionAmount}} ml Water Today! [Since 12AM ] </h3>
+                <h3>{{resultMessage}}</h3>
             </div>
 
         </div>
