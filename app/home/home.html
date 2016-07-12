@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Title</title>
+    <title>H2..OH</title>
 </head>
 <body ng-app="dispenser.home" ng-controller="homeController">
 
@@ -27,7 +27,7 @@
                 <p>Here is a cool application to help you track your water intake. Leaderboards, history, charts and
                     graphs and so much to help you keep yourself hydrated </p>
                 <input type="text" placeholder="Employee ID" ng-model="empId">
-                <input type="button" ng-click="showUserData()" value="Enter">
+                <input type="button" class="btn-primary" ng-click="showUserData()" value="Enter">
                 <!--<button ng-click="showUserData()">Enter</button>-->
                 <!--<p>-->
                     <!--<a class="btn btn-lg btn-primary" role="button" data-toggle="modal" data-target="#myModal">Wohoo !!-->
@@ -67,7 +67,7 @@
         </div>
         <div class="col-md-8" ng-if="info">
             <div class="jumbotron">
-                <h2>Hii {{getEmpName()}}</h2>
+                <h2>Hi {{getEmpName() | uppercase}}</h2>
                 <h3>You Have Consumed {{consumptionAmount}} ml Water Today! [Since 12AM ] </h3>
                 <h3>{{resultMessage}}</h3>
             </div>
