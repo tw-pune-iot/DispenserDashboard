@@ -19,7 +19,7 @@ angular.module('dispenser.home', ['ngRoute'])
             //     {'id': '4', 'consumption': '3L'}, {'id': '9', 'consumption': '1L'},
             //     {'id': '5', 'consumption': '4L'}, {'id': '10', 'consumption': '1L'}];
 
-            $http.get('http://10.131.125.74:8083/api/users').then(function (data) {
+            $http.get('http://localhost:8083/api/users').then(function (data) {
                 $scope.allData = data.data;
                 $scope.showLeaderBoard();
             });
@@ -27,7 +27,7 @@ angular.module('dispenser.home', ['ngRoute'])
             $scope.getData = function () {
                 $scope.date = new Date().toISOString().split('T')[0];
                 $scope.consumptionAmount = 0;
-                $http.get('http://10.131.125.74:8083/api/waterdispenser/consumption/empId/' + $scope.empId).success(function (response) {
+                $http.get('http://localhost:8083/api/waterdispenser/consumption/empId/' + $scope.empId).success(function (response) {
                     response.forEach(function (eachEntry) {
                         if (eachEntry.timeStamp.split('T')[0] === $scope.date) {
                             $scope.consumptionAmount += eachEntry.consumptionAmount;
@@ -61,7 +61,7 @@ angular.module('dispenser.home', ['ngRoute'])
             };
 
             $scope.showLeaderBoard = function () {
-                $http.get('http://10.131.125.74:8083/api/waterdispenser/topConsumers/').then(function (data) {
+                $http.get('http://localhost:8083/api/waterdispenser/topConsumers/').then(function (data) {
                     $scope.employeeArray = data.data;
 
                     $scope.resultArray = [];
