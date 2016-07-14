@@ -13,11 +13,6 @@ angular.module('dispenser.home', ['ngRoute'])
 
             $scope.info = false;
             $scope.allData = null;
-            $scope.leaderArray = null;
-            // $scope.topTenList = [{'id': '1', 'consumption': '2L'}, {'id': '6', 'consumption': '5L'},
-            //     {'id': '3', 'consumption': '2L'}, {'id': '8', 'consumption': '4L'},
-            //     {'id': '4', 'consumption': '3L'}, {'id': '9', 'consumption': '1L'},
-            //     {'id': '5', 'consumption': '4L'}, {'id': '10', 'consumption': '1L'}];
 
             $http.get('http://localhost:8083/api/users').then(function (data) {
                 $scope.allData = data.data;
@@ -28,11 +23,7 @@ angular.module('dispenser.home', ['ngRoute'])
                 $scope.date = new Date().toISOString().split('T')[0];
                 $scope.consumptionAmount = 0;
                 $http.get('http://localhost:8083/api/waterdispenser/consumption/empId/' + $scope.empId).success(function (response) {
-                    response.forEach(function (eachEntry) {
-                        if (eachEntry.timeStamp.split('T')[0] === $scope.date) {
-                            $scope.consumptionAmount += eachEntry.consumptionAmount;
-                        }
-                    });
+                    $scope.consumptionAmount = response[0].consumption;
                     $scope.needToDrink = 3700 - $scope.consumptionAmount;
                     $scope.resultMessage = $scope.getResultMessage($scope.needToDrink);
                 });
@@ -78,7 +69,7 @@ angular.module('dispenser.home', ['ngRoute'])
                             }
                         });
                     });
-                    return($scope.resultArray);
+                    return ($scope.resultArray);
 
                 });
 
