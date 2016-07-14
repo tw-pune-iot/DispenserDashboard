@@ -21,6 +21,10 @@ body{
     background-color: #373a3c;
 }
 
+h3{
+    font-weight: 200;
+}
+
 @media(max-width:768px){
     #login-dp{
         background-color: inherit;
