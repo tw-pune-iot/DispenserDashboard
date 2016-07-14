@@ -29,9 +29,9 @@
                 <input type="text" placeholder="Employee ID" ng-model="empId">
                 <input type="button" class="btn-primary" ng-click="showUserData()" value="Enter">
 
-                <li ng-repeat = "emp in resultArray">
-                     Name: {{emp.employeeName}}-{{emp.consumptionAmount}}ml
-                </li>
+                <!--<li ng-repeat="emp in resultArray">-->
+                    <!--Name: {{emp.employeeName}}-{{emp.consumptionAmount}}ml-->
+                <!--</li>-->
 
 
                 <!--<button ng-click="showUserData()">Enter</button>-->
@@ -71,8 +71,28 @@
 
             </div>
         </div>
+        <div class="table-responsive jumbotron">
+            <table class="table ">
+                <thead class="thead-inverse ">
+                <tr>
+                    <th>Name</th>
+                    <th>Consumption</th>
+                </tr>
+                <tbody>
+            <tr ng-repeat="emp in resultArray">
+
+                    <td> {{emp.employeeName}}</td>
+                    <td>{{emp.consumptionAmount}}ml</td>
+
+            </tr>
+                </tbody>
+
+
+            </table>
+        </div>
         <div class="col-md-8" ng-if="info">
             <div class="jumbotron" ng-if="getEmpName()">
+
                 <h2>Hi {{getEmpName() | uppercase}}</h2>
                 <h3>You Have Consumed {{consumptionAmount}} ml Water Today!</h3>
                 <h3>{{resultMessage}}</h3>
@@ -89,8 +109,6 @@
         <h3>You Have Consumed {{consumptionAmount}} ml Water Today!</h3>
         <h3>{{resultMessage}}</h3>
     </div>
-
-
 
 
 </div>
