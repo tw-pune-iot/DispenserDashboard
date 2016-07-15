@@ -29,7 +29,7 @@
                 <input type="button" class="btn-primary" ng-click="showUserData()" value="Enter">
 
                 <!--<li ng-repeat="emp in resultArray">-->
-                    <!--Name: {{emp.employeeName}}-{{emp.consumptionAmount}}ml-->
+                <!--Name: {{emp.employeeName}}-{{emp.consumptionAmount}}ml-->
                 <!--</li>-->
 
 
@@ -70,25 +70,30 @@
 
             </div>
         </div>
-        <div class="table-responsive jumbotron">
-            <table class="table ">
-                <thead class="thead-inverse ">
-                <tr>
-                    <th>Name</th>
-                    <th>Consumption</th>
-                </tr>
-                <tbody>
-            <tr ng-repeat="emp in resultArray">
 
-                    <td> {{emp.employeeName}}</td>
-                    <td>{{emp.consumptionAmount}}ml</td>
+        <!---->
+        <!--Leaderboard-->
+        <!--<div class="table-responsive jumbotron">-->
+        <!--<table class="table ">-->
+        <!--<thead class="thead-inverse ">-->
+        <!--<tr>-->
+        <!--<th>Name</th>-->
+        <!--<th>Consumption</th>-->
+        <!--</tr>-->
+        <!--<tbody>-->
+        <!--<tr ng-repeat="emp in resultArray">-->
 
-            </tr>
-                </tbody>
+        <!--<td> {{emp.employeeName}}</td>-->
+        <!--<td>{{emp.consumptionAmount}}ml</td>-->
+
+        <!--</tr>-->
+        <!--</tbody>-->
 
 
-            </table>
-        </div>
+        <!--</table>-->
+        <!--</div>-->
+
+
         <div class="col-md-8" ng-if="info">
             <div class="jumbotron" ng-if="getEmpName()">
 
@@ -101,7 +106,10 @@
             </div>
 
         </div>
+
+
     </div>
+
 
     <div class="jumbotron" ng-if="show()">
         <h2>Hi {{getEmpName() | uppercase}}</h2>
