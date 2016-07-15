@@ -10,10 +10,7 @@ angular.module('dispenser.home', ['ngRoute'])
     }])
 
     .controller('homeController', function ($scope, $http) {
-            var config = {headers:  {
-                    'Access-Control-Allow-Origin': '*'
-                }
-            };
+          
             $scope.info = false;
             $scope.allData = null;
 
