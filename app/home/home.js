@@ -23,7 +23,7 @@ angular.module('dispenser.home', ['ngRoute'])
                 $scope.date = new Date().toISOString().split('T')[0];
                 $scope.consumptionAmount = 0;
                 $http.get('http://10.131.125.74:8083/api/waterdispenser/consumption/empId/' + $scope.empId).success(function (response) {
-                    $scope.consumptionAmount = response[0].consumption;
+                    $scope.consumptionAmount = response.length && response[0].consumption;
                     $scope.needToDrink = 3700 - $scope.consumptionAmount;
                     $scope.resultMessage = $scope.getResultMessage($scope.needToDrink);
                 });
